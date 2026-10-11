@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Augustin Schneller · Portfolio</title>
+  <meta name="description" content="Portfolio d'Augustin Schneller, étudiant à l'EPITA : programmation réseau, systèmes embarqués et développement logiciel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="nav" id="nav">
+    <a href="#accueil" class="logo"><span class="prompt">~/</span>augustin</a>
+    <nav>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#labo">Labo</a></li>
+        <li><a href="#experience">Expérience</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#perspectives">Perspectives</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+      <svg class="sun" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
+      <svg class="moon" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+    </button>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="accueil">
+      <canvas id="netCanvas" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <p class="hero-kicker mono">EPITA · Promotion 2030</p>
+        <h1>Augustin <span class="accent">Schneller</span></h1>
+        <p class="hero-typed mono"><span class="prompt">$</span> <span id="typed"></span><span class="caret">▍</span></p>
+        <p class="hero-sub">Étudiant en 2<sup>e</sup> année de cycle préparatoire. Je fais communiquer des machines : serveurs TCP, objets connectés, outils de surveillance.</p>
+        <div class="hero-cta">
+          <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+          <a href="#contact" class="btn btn-ghost">Me contacter</a>
+        </div>
+        <ul class="hero-stats">
+          <li><strong data-count="3">0</strong><span>projets réseau</span></li>
+          <li><strong data-count="134">0</strong><span>lignes du serveur TCP écrites par moi (sur 148)</span></li>
+          <li><strong data-count="1">0</strong><span>stage en R&amp;D (ONERA)</span></li>
+        </ul>
+      </div>
+      <a href="#parcours" class="scroll-hint" aria-label="Descendre"><span></span></a>
+    </section>
+
+    <!-- ===== PARCOURS ===== -->
+    <section class="section" id="parcours">
+      <div class="section-head reveal">
+        <span class="section-num mono">01</span>
+        <h2>Parcours</h2>
+      </div>
+      <div class="grid-2">
+        <div class="reveal">
+          <p class="lead">Ce portfolio met en valeur mes acquis théoriques et pratiques en développement réseau, et ma capacité à porter un regard critique sur mes propres projets.</p>
+          <p>Je suis en 2<sup>e</sup> année de cycle préparatoire à l'<strong>EPITA</strong>. Ma formation est très orientée algorithmique et structures de données : allocation dynamique, listes chaînées, arbres, fonctions de hachage.</p>
+          <p>Je programme en C bas niveau, je travaille sous Linux (Ubuntu, NixOS) et j'utilise Git/GitLab au quotidien, seul ou en équipe comme sur le projet J3D.</p>
+        </div>
+        <ol class="timeline reveal">
+          <li>
+            <span class="tl-date mono">2023</span>
+            <h3>Thermomètre piscine Wi-Fi</h3>
+            <p>Premier projet embarqué personnel sur ESP32.</p>
+          </li>
+          <li>
+            <span class="tl-date mono">2025</span>
+            <h3>Entrée à l'EPITA</h3>
+            <p>Cycle préparatoire : C, algorithmique, systèmes.</p>
+          </li>
+          <li>
+            <span class="tl-date mono">Mai 2026</span>
+            <h3>SpeedDeath · projet J3D</h3>
+            <p>Jeu multijoueur en équipe, je prends en charge le serveur réseau.</p>
+          </li>
+          <li>
+            <span class="tl-date mono">2026</span>
+            <h3>Stage à l'ONERA</h3>
+            <p>Développement et test logiciel en environnement R&amp;D.</p>
+          </li>
+          <li class="tl-future">
+            <span class="tl-date mono">Printemps 2027</span>
+            <h3>SeoulTech, Corée du Sud</h3>
+            <p>Candidature en préparation pour un semestre de mobilité.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== PROJETS ===== -->
+    <section class="section" id="projets">
+      <div class="section-head reveal">
+        <span class="section-num mono">02</span>
+        <h2>Projets</h2>
+      </div>
+
+      <div class="filters reveal" role="tablist" aria-label="Filtrer les projets">
+        <button class="filter active" data-filter="all">Tous</button>
+        <button class="filter" data-filter="reseau">Réseau</button>
+        <button class="filter" data-filter="embarque">Embarqué</button>
+        <button class="filter" data-filter="systeme">Système</button>
+        <button class="filter" data-filter="equipe">En équipe</button>
+      </div>
+
+      <div class="projects">
+        <article class="card reveal" data-tags="reseau equipe" data-project="speeddeath" tabindex="0">
+          <div class="card-media media-speed">
+            <img src="img/speeddeath.jpg" alt="Écran d'accueil du jeu SpeedDeath : une scène de théâtre" loading="lazy">
+          </div>
+          <div class="card-body">
+            <p class="card-meta mono">Python · TCP · Sockets · JSON</p>
+            <h3>SpeedDeath</h3>
+            <p>Jeu multijoueur en réseau local. J'ai écrit le serveur TCP multi-clients et le protocole de synchronisation entre les deux joueurs.</p>
+            <span class="card-more">Détails →</span>
+          </div>
+        </article>
+
+        <article class="card reveal" data-tags="reseau embarque" data-project="thermo" tabindex="0">
+          <div class="card-media media-thermo" aria-hidden="true">
+            <div class="thermo-widget">
+              <span class="thermo-label mono">piscine</span>
+              <span class="thermo-value" id="thermoValue">26.4</span><span class="thermo-unit">°C</span>
+              <span class="thermo-status mono"><i class="dot"></i>GET /data.json · 200</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-meta mono">C++ · ESP32 · HTTP/HTTPS · InfluxDB</p>
+            <h3>Thermomètre piscine Wi-Fi</h3>
+            <p>Sonde DS18B20 sur ESP32 : serveur web pour le réseau local et client HTTPS vers le cloud. Adapté du projet open source ToMe25.</p>
+            <span class="card-more">Détails →</span>
+          </div>
+        </article>
+
+        <article class="card reveal" data-tags="reseau systeme" data-project="watch" tabindex="0">
+          <div class="card-media media-watch" aria-hidden="true">
+            <pre class="mini-term mono" id="miniTerm"></pre>
+          </div>
+          <div class="card-body">
+            <p class="card-meta mono">Bash · curl · HTTP</p>
+            <h3>Surveillance de site</h3>
+            <p>Script qui vérifie toutes les 60 s qu'un site répond, interprète les codes HTTP et prévient quand le service revient.</p>
+            <span class="card-more">Détails →</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== LABO INTERACTIF ===== -->
+    <section class="section" id="labo">
+      <div class="section-head reveal">
+        <span class="section-num mono">03</span>
+        <h2>Labo interactif</h2>
+      </div>
+      <p class="section-intro reveal">Deux petites simulations pour voir comment fonctionnent mes projets. Tout se passe dans votre navigateur, aucune requête réelle n'est envoyée.</p>
+
+      <div class="lab-grid">
+        <!-- Simulateur protocole SpeedDeath -->
+        <div class="lab reveal">
+          <div class="lab-head">
+            <h3>Le protocole de SpeedDeath</h3>
+            <p>Chaque message est une ligne JSON. Le serveur relaie le message à l'autre joueur.</p>
+          </div>
+          <div class="net-diagram" id="netDiagram">
+            <div class="node" id="nodeJ1"><span class="node-title">J1</span><span class="node-sub mono">joueur</span></div>
+            <div class="node node-server" id="nodeSrv"><span class="node-title">Serveur</span><span class="node-sub mono">0.0.0.0:5555</span></div>
+            <div class="node" id="nodeJ2"><span class="node-title">J2</span><span class="node-sub mono">piégeur</span></div>
+            <div class="wire wire-left"></div>
+            <div class="wire wire-right"></div>
+          </div>
+          <div class="lab-actions">
+            <button class="chip" data-msg="connect">J2 se connecte</button>
+            <button class="chip" data-msg="player_pos">J1 bouge</button>
+            <button class="chip" data-msg="add">J2 pose un piège</button>
+            <button class="chip" data-msg="remove">J2 retire un piège</button>
+            <button class="chip" data-msg="game_result">Fin de partie</button>
+            <button class="chip" data-msg="reset_game">Reset</button>
+          </div>
+          <pre class="log mono" id="protoLog" aria-live="polite"><span class="muted"># Cliquez sur une action pour envoyer un message</span></pre>
+        </div>
+
+        <!-- Simulateur surveille-site -->
+        <div class="lab reveal">
+          <div class="lab-head">
+            <h3>Comment le script lit un code HTTP</h3>
+            <p>Choisissez une réponse : le script décide si le site est disponible.</p>
+          </div>
+          <div class="code-picker">
+            <button class="code-btn c2" data-code="200">200</button>
+            <button class="code-btn c3" data-code="301">301</button>
+            <button class="code-btn c4" data-code="404">404</button>
+            <button class="code-btn c5" data-code="503">503</button>
+            <button class="code-btn c5" data-code="522">522</button>
+            <button class="code-btn c0" data-code="000">000</button>
+          </div>
+          <div class="verdict" id="verdict">
+            <span class="verdict-icon" id="verdictIcon">?</span>
+            <div>
+              <strong id="verdictTitle">En attente</strong>
+              <p id="verdictText">Sélectionnez un code de réponse.</p>
+            </div>
+          </div>
+          <pre class="log mono small">curl -4 -L -s -o /dev/null -w "%{http_code}" \
+     --connect-timeout 10 --max-time 20 "$URL"</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="section" id="experience">
+      <div class="section-head reveal">
+        <span class="section-num mono">04</span>
+        <h2>Expérience</h2>
+      </div>
+      <div class="xp reveal">
+        <div class="xp-side">
+          <span class="xp-org">ONERA</span>
+          <span class="mono muted">Stage · R&amp;D</span>
+        </div>
+        <div class="xp-main">
+          <h3>Stage de développement et test logiciel</h3>
+          <p>Immersion dans un environnement de recherche et développement professionnel (environnement Semia), sur des sujets de développement, de test et de maintenance : règles, autorisations et mécanismes de planification.</p>
+          <ul class="check">
+            <li>Installation des outils, débogage et correction de problèmes</li>
+            <li>Écriture et modification de tests unitaires</li>
+            <li>Fixtures et <em>mocking</em> pour isoler les composants testés</li>
+            <li>Découverte des méthodes industrielles de test logiciel</li>
+          </ul>
+          <div class="tags">
+            <span>Python</span><span>pytest</span><span>pytest-qt</span><span>Git</span><span>VS Code</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COMPETENCES ===== -->
+    <section class="section" id="competences">
+      <div class="section-head reveal">
+        <span class="section-num mono">05</span>
+        <h2>Compétences</h2>
+      </div>
+
+      <div class="tabs reveal" role="tablist">
+        <button class="tab active" data-tab="hard" role="tab">Techniques</button>
+        <button class="tab" data-tab="levels" role="tab">Niveaux réseau</button>
+        <button class="tab" data-tab="soft" role="tab">Méthode &amp; savoir-être</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-hard">
+        <div class="skill-cards">
+          <div class="skill-card reveal">
+            <h3>Programmation réseau</h3>
+            <p>Sockets TCP, requêtes HTTP/HTTPS, flux de données JSON.</p>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Langages</h3>
+            <div class="tags"><span>Python</span><span>C</span><span>C++ (Arduino/ESP32)</span><span>Bash</span></div>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Systèmes</h3>
+            <p>Threads, files, gestion de la concurrence. Linux (Ubuntu, NixOS).</p>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Outils</h3>
+            <div class="tags"><span>Git / GitLab</span><span>pytest</span><span>pytest-qt</span><span>VS Code</span><span>PlatformIO</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-levels">
+        <div class="tiers">
+          <div class="tier tier-3">
+            <h3>Pratique</h3>
+            <p class="tier-desc">Je l'ai écrit moi-même et je sais l'expliquer.</p>
+            <ul>
+              <li>Serveur TCP multi-clients <span>SpeedDeath</span></li>
+              <li>Conception d'un protocole applicatif <span>SpeedDeath</span></li>
+              <li>Modèle client / serveur <span>SpeedDeath · Thermomètre</span></li>
+              <li>HTTP : méthodes, codes, en-têtes, MIME <span>Thermomètre · Surveillance</span></li>
+              <li>ESP32 : Wi-Fi station + point d'accès <span>Thermomètre</span></li>
+            </ul>
+          </div>
+          <div class="tier tier-2">
+            <h3>Notions</h3>
+            <p class="tier-desc">Je l'ai utilisé ou adapté dans un projet.</p>
+            <ul>
+              <li>Adressage IP et ports en réseau local <span>SpeedDeath</span></li>
+              <li>Monitoring HTTP, automatisation Bash <span>Surveillance</span></li>
+              <li>Serveur web embarqué asynchrone <span>Thermomètre</span></li>
+              <li>Gestion des erreurs réseau <span>Tous</span></li>
+            </ul>
+          </div>
+          <div class="tier tier-1">
+            <h3>Découverte</h3>
+            <p class="tier-desc">Je l'ai rencontré, à approfondir.</p>
+            <ul>
+              <li>HTTPS / TLS et NTP <span>Thermomètre</span></li>
+              <li>mDNS, IPv6 <span>Thermomètre</span></li>
+              <li>UDP <span>SpeedDeath</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="note">Évaluation honnête, établie à partir du code et de l'historique git de mes projets. Ce sont des projets étudiants à petite échelle : aucune compétence n'atteint encore la maîtrise.</p>
+      </div>
+
+      <div class="tab-panel" id="tab-soft">
+        <div class="skill-cards">
+          <div class="skill-card reveal">
+            <h3>Méthodologie</h3>
+            <ul class="check">
+              <li>Conception de protocoles applicatifs simples</li>
+              <li>Adaptation et intégration de code open source</li>
+              <li>Analyse de pannes et modes de repli</li>
+            </ul>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Esprit d'équipe</h3>
+            <p>Synchronisation du code réseau avec les autres modules du jeu SpeedDeath, au sein d'une équipe de 5.</p>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Autonomie</h3>
+            <p>Apprentissage seul des protocoles de communication web sur microcontrôleur.</p>
+          </div>
+          <div class="skill-card reveal">
+            <h3>Esprit critique</h3>
+            <p>Je sais évaluer les limites de mes solutions techniques, et je les documente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PERSPECTIVES ===== -->
+    <section class="section" id="perspectives">
+      <div class="section-head reveal">
+        <span class="section-num mono">06</span>
+        <h2>Perspectives</h2>
+      </div>
+      <p class="section-intro reveal">Mes projets m'ont fait passer de la théorie à la pratique. Voici ce que je veux améliorer ensuite.</p>
+      <div class="accordion">
+        <details class="reveal" open>
+          <summary>Optimiser les communications</summary>
+          <p>Remplacer les threads du serveur SpeedDeath par des entrées/sorties asynchrones (<code>asyncio</code> ou <code>selectors</code>), et passer les positions en UDP avec un numéro de séquence, en gardant TCP pour les événements qui doivent arriver.</p>
+        </details>
+        <details class="reveal">
+          <summary>Sécurité et énergie sur l'ESP32</summary>
+          <p>Sortir les secrets du code source, protéger le point d'accès de configuration par un mot de passe, activer le mode Deep Sleep et publier en MQTT vers un broker authentifié.</p>
+        </details>
+        <details class="reveal">
+          <summary>Analyser le trafic avec Wireshark</summary>
+          <p>Capturer les échanges de mes projets pour observer concrètement le handshake TCP, les requêtes DNS et la négociation TLS, et documenter l'analyse.</p>
+        </details>
+        <details class="reveal">
+          <summary>Mobilité internationale : SeoulTech 2027</summary>
+          <p>Je prépare une candidature pour le semestre de printemps 2027 à SeoulTech (Corée du Sud), pour approfondir la sécurité informatique, l'intelligence artificielle et l'informatique quantique, dans un nouvel environnement universitaire et culturel.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section contact" id="contact">
+      <div class="section-head reveal">
+        <span class="section-num mono">07</span>
+        <h2>Contact</h2>
+      </div>
+      <div class="contact-box reveal">
+        <p class="lead">Un stage, un projet, une question ? Écrivez-moi.</p>
+        <div class="contact-actions">
+          <button class="btn btn-primary" id="copyMail" data-mail="augustin.schneller@gmail.com">
+            <span id="copyMailLabel">augustin.schneller@gmail.com</span>
+          </button>
+          <a class="btn btn-ghost" href="https://github.com/augustinschneller-debug" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <p class="muted small">Cliquez sur l'adresse pour la copier.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer mono">
+    <span>© <span id="year"></span> Augustin Schneller</span>
+    <span class="muted">Fait main en HTML, CSS et JavaScript</span>
+  </footer>
+
+  <!-- ===== MODALE PROJET ===== -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" data-close aria-label="Fermer">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
